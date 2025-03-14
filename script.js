@@ -1,3 +1,4 @@
+/*
 document.addEventListener('DOMContentLoaded', function () {
     const nodes = document.querySelectorAll('.bamboo-node');
     const panda = document.querySelector('.panda');
@@ -247,3 +248,4 @@ document.addEventListener('DOMContentLoaded', function() {
         updateParticles();
     });
 });
+*/

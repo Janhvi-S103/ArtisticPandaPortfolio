@@ -27,10 +27,10 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Reduce particle count on mobile
         const particleCount = isMobile ? {
-            leaves: 10,
+            leaves: 25,
             fireflies: 15
         } : {
-            leaves: 20,
+            leaves: 200,
             fireflies: 30
         };
         

@@ -1,3 +1,4 @@
+/*
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@300;400&display=swap');
 
 * {
@@ -15,13 +16,11 @@ body {
     transition: background 0.5s ease, color 0.5s ease;
 }
 
-/* Dark Mode Theme */
 body.dark-mode {
     background: linear-gradient(135deg, #1c2a18, #006600);
     color: #e0e0e0;
 }
 
-/* Toggle Theme Button */
 .toggle-theme {
     position: fixed;
     top: 20px;
@@ -44,13 +43,11 @@ body.dark-mode {
     background: #1c2a18;
 }
 
-/* Container */
 .container {
     display: flex;
     width: 100%;
 }
 
-/* Bamboo Navigation */
 .bamboo-nav {
     width: 250px;
     height: 100vh;
@@ -63,20 +60,18 @@ body.dark-mode {
     z-index: 100;
 }
 
-/* Bamboo Stem - Now Fully Visible */
 .bamboo-stem {
     width: 600px;
     height: 100vh;
     background-image: url('bamboo.png');
     background-repeat: repeat-y;
-    background-size: contain; /* Ensures it fully covers the element */
+    background-size: contain;
     background-position: center;
     position: relative;
-    z-index: -1; /* Moves it behind nodes & panda */
+    z-index: -1;
     border-radius: 10px;
 }
 
-/* Bamboo Nodes - Start as Small Circles */
 .bamboo-node {
     position: absolute;
     left: 50%;
@@ -97,7 +92,6 @@ body.dark-mode {
     z-index: 150;
 }
 
-/* Bamboo Node Label */
 .bamboo-node span {
     position: absolute;
     left: -120px;
@@ -105,9 +99,9 @@ body.dark-mode {
     color: #1c2a18;
     padding: 8px 12px;
     border-radius: 8px;
-    opacity: 1; /* Always visible */
+    opacity: 1;
     transition: all 0.3s ease;
-    transform: translateX(0); /* No transform by default */
+    transform: translateX(0);
     pointer-events: none;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     white-space: nowrap;
@@ -116,7 +110,6 @@ body.dark-mode {
     text-align: center;
 }
 
-/* Active node styling */
 .bamboo-node.active {
     width: 130px;
     height: 45px;
@@ -142,7 +135,6 @@ body.dark-mode {
     width: auto;
 }
 
-/* Dark mode styles for labels */
 body.dark-mode .bamboo-node span {
     background-color: #006600;
     color: #6eea8e;
@@ -153,7 +145,6 @@ body.dark-mode .bamboo-node.active span {
     color: #6eea8e;
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
     .bamboo-node span {
         left: -100px;
@@ -179,7 +170,6 @@ body.dark-mode .bamboo-node.active span {
     }
 }
 
-/* Panda Character */
 .panda {
     position: absolute;
     left: 50%;
@@ -196,7 +186,6 @@ body.dark-mode .bamboo-node.active span {
     height: 100%;
 }
 
-/* Content Sections */
 .content {
     margin-left: 280px;
     width: calc(100% - 280px);
@@ -223,7 +212,6 @@ body.dark-mode .section {
     background-color: rgba(40, 40, 40, 0.85);
 }
 
-/* Expertise Grid */
 .expertise-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -248,7 +236,6 @@ body.dark-mode .expertise-card {
     background: #006600;
 }
 
-/* Background Animations */
 .particle-container {
     position: fixed;
     top: 0;
@@ -260,7 +247,6 @@ body.dark-mode .expertise-card {
     z-index: -10;
 }
 
-/* Leaf Styles */
 .leaf {
     position: absolute;
     width: 15px;
@@ -270,7 +256,6 @@ body.dark-mode .expertise-card {
     z-index: -5;
 }
 
-/* Firefly Styles */
 .firefly {
     position: absolute;
     width: 4px;
@@ -282,7 +267,6 @@ body.dark-mode .expertise-card {
     z-index: -5;
 }
 
-/* Leaf Animation */
 @keyframes falling {
     0% {
         transform: translateY(-5vh) rotate(0deg) translateX(0);
@@ -298,7 +282,6 @@ body.dark-mode .expertise-card {
     }
 }
 
-/* Firefly Animation */
 @keyframes glow {
     0% {
         opacity: 0;
@@ -332,7 +315,6 @@ body.dark-mode .expertise-card {
     }
 }
 
-/* Typography */
 h1 {
     font-family: 'Playfair Display', serif;
     font-size: 2.5rem;
@@ -356,7 +338,6 @@ p {
     margin-bottom: 20px;
 }
 
-/* Mobile Menu */
 .mobile-menu-toggle {
     display: none;
     position: fixed;
@@ -372,7 +353,6 @@ p {
     font-size: 1.2rem;
 }
 
-/* Responsive Styles */
 @media (max-width: 1200px) {
     .bamboo-nav {
         left: 20px;
@@ -484,3 +464,4 @@ p {
         font-size: 1.3rem;
     }
 }
+*/

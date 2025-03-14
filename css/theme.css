@@ -1,7 +1,7 @@
 /* Dark Mode Theme */
 body.dark-mode {
-    background: linear-gradient(135deg, #1c2a18, #006600);
-    color: #e0e0e0;
+    background: linear-gradient(135deg, #10403B, #4C5958);
+    color: #BFBFBF;
 }
 
 /* Toggle Theme Button */
@@ -13,8 +13,8 @@ body.dark-mode {
 }
 
 #theme-toggle {
-    background: #006600;
-    color: white;
+    background: #127369;
+    color: #BFBFBF;
     border: none;
     padding: 10px;
     border-radius: 50%;
@@ -24,32 +24,35 @@ body.dark-mode {
 }
 
 #theme-toggle:hover {
-    background: #1c2a18;
+    background: #10403B;
 }
 
 /* Dark mode styles for content and typography */
 body.dark-mode .section {
-    background-color: rgba(40, 40, 40, 0.85);
+    background-color: rgba(40, 40, 40, 0.342);
 }
 
-body.dark-mode h1, body.dark-mode h2 {
-    color: #6eea8e;
-}
+
 
 /* Dark mode styles for nav labels */
 body.dark-mode .bamboo-node span {
-    background-color: #006600;
-    color: #6eea8e;
-}
-
-body.dark-mode .bamboo-nav {
-    background: rgba(28, 42, 24, 0.95);
+    background-color: #127369;
+    color: #ffffff;
 }
 
 body.dark-mode .bamboo-node.active span {
     background-color: transparent;
-    color: #6eea8e;
+    color: #fdffff;
 }
+
+body.dark-mode h1, body.dark-mode h2 {
+    color: #afc2c0;
+}
+
+body.dark-mode .bamboo-nav {
+    background: rgba(16, 64, 59, 0.95);
+}
+
 
 /* Background Animations */
 .particle-container {
@@ -68,9 +71,7 @@ body.dark-mode .bamboo-node.active span {
     position: absolute;
     width: 15px;
     height: 15px;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path fill="%236eea8e" d="M10,0 C15,5 20,10 10,20 C0,10 5,5 10,0 Z"/></svg>');
-    opacity: 0.7;
-    z-index: -5;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path fill="%238AA6A3" d="M10,0 C15,5 20,10 10,20 C0,10 5,5 10,0 Z"/></svg>');    z-index: -5;
 }
 
 /* Firefly Styles */
@@ -79,10 +80,14 @@ body.dark-mode .bamboo-node.active span {
     width: 4px;
     height: 4px;
     border-radius: 50%;
-    background-color: #826cf6;
-    box-shadow: 0 0 10px 2px #826cf6;
+    background-color: #8AA6A3;
+    box-shadow: 0 0 10px 2px #8AA6A3;
     opacity: 0;
     z-index: -5;
+}
+body.dark-mode .firefly {
+    background-color: #8AA6A3;
+    box-shadow: 0 0 10px 2px #8AA6A3;
 }
 
 /* Leaf Animation */
