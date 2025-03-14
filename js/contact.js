@@ -21,32 +21,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 item.style.transform = 'translateX(0)';
             }, 300 + (index * 100));
         });
-        
-        // Animate social links
-        const socialLinks = document.querySelectorAll('.social-link');
-        socialLinks.forEach((link, index) => {
-            link.style.opacity = '0';
-            link.style.transform = 'translateX(-20px)';
-            link.style.transition = `opacity 0.4s ease ${index * 0.1 + 0.3}s, transform 0.4s ease ${index * 0.1 + 0.3}s`;
-            
-            setTimeout(() => {
-                link.style.opacity = '1';
-                link.style.transform = 'translateX(0)';
-            }, 600 + (index * 100));
-        });
-        
-        // Animate contact cards
-        const contactCards = document.querySelectorAll('.contact-card');
-        contactCards.forEach((card, index) => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            card.style.transition = `opacity 0.5s ease ${index * 0.2}s, transform 0.5s ease ${index * 0.2}s`;
-            
-            setTimeout(() => {
-                card.style.opacity = '0.85';
-                card.style.transform = 'translateY(0)';
-            }, 200 + (index * 200));
-        });
     };
     
     // Run animations when contact section is visible
@@ -62,5 +36,17 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
         observer.observe(contactSection);
+    }
+    
+    // Add email click handler
+    const emailLink = document.querySelector('.contact-item a[href^="mailto:"]');
+    if (emailLink) {
+        emailLink.addEventListener('click', function(e) {
+            // Gmail redirect can be configured here
+            // Currently using the default mailto: behavior
+            // If you want to specifically redirect to Gmail compose:
+            // e.preventDefault();
+            // window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${this.href.replace('mailto:', '')}`);
+        });
     }
 });
