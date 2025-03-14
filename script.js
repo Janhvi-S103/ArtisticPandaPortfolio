@@ -3,6 +3,24 @@ document.addEventListener('DOMContentLoaded', function () {
     const panda = document.querySelector('.panda');
     const sections = document.querySelectorAll('.section');
     const themeToggle = document.getElementById('theme-toggle');
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const bambooNav = document.getElementById('bamboo-nav');
+
+    // Mobile menu toggle functionality
+    mobileMenuToggle.addEventListener('click', function() {
+        bambooNav.classList.toggle('active');
+        this.innerHTML = bambooNav.classList.contains('active') ? 
+            '<i class="fas fa-times"></i>' : 
+            '<i class="fas fa-bars"></i>';
+    });
+
+    // Close mobile menu when a node is clicked
+    function closeMobileMenu() {
+        if (window.innerWidth <= 768) {
+            bambooNav.classList.remove('active');
+            mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+        }
+    }
 
     // Distribute nodes evenly along the bamboo stalk
     function distributeNodes() {
@@ -15,7 +33,31 @@ document.addEventListener('DOMContentLoaded', function () {
             node.style.width = "25px";
             node.style.height = "25px";
             node.style.transform = "scale(1)";
-            node.style.fontSize = "0px";
+        });
+    }
+
+    // Function to update node labels visibility
+    function updateNodeLabels() {
+        nodes.forEach(node => {
+            const nodeLabel = node.querySelector('span');
+            
+            if (node.classList.contains('active')) {
+                // Make the label appear inside the active node
+                nodeLabel.style.position = 'relative';
+                nodeLabel.style.left = '0';
+            } else {
+                // Reset label position for inactive nodes
+                nodeLabel.style.position = 'absolute';
+                nodeLabel.style.left = '-120px';
+                
+                // Adjust for responsive design
+                if (window.innerWidth <= 768) {
+                    nodeLabel.style.left = '-100px';
+                }
+                if (window.innerWidth <= 480) {
+                    nodeLabel.style.left = '-80px';
+                }
+            }
         });
     }
 
@@ -27,13 +69,21 @@ document.addEventListener('DOMContentLoaded', function () {
                 n.classList.remove('active');
                 n.style.width = "25px";
                 n.style.height = "25px";
-                n.style.fontSize = "0px";
             });
 
             node.classList.add('active');
-            node.style.width = "130px";
+            
+            // Adjust node size for mobile
+            if (window.innerWidth <= 480) {
+                node.style.width = "100px";
+            } else {
+                node.style.width = "130px";
+            }
+            
             node.style.height = "45px";
-            node.style.fontSize = "18px";
+            
+            // Update labels visibility
+            updateNodeLabels();
 
             if (callback) callback();
         }, 500);
@@ -49,6 +99,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const sectionId = this.getAttribute('data-section');
             setPandaPosition(this, () => {
                 showSection(sectionId);
+                closeMobileMenu();
             });
         });
     });
@@ -71,10 +122,23 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Ensure nodes are evenly spaced when the page loads or resizes
-    window.addEventListener('resize', distributeNodes);
+    window.addEventListener('resize', function() {
+        distributeNodes();
+        
+        // Reapply active node styles on resize
+        const activeNode = document.querySelector('.bamboo-node.active');
+        if (activeNode) {
+            activeNode.style.width = window.innerWidth <= 480 ? "100px" : "130px";
+        }
+        
+        // Also update node labels
+        updateNodeLabels();
+    });
+    
     distributeNodes();
     nodes[0].click();
 });
+
 document.addEventListener('DOMContentLoaded', function() {
     // Create container for particles
     const particleContainer = document.createElement('div');
@@ -96,11 +160,21 @@ document.addEventListener('DOMContentLoaded', function() {
     
     function updateParticles() {
         const isDarkMode = document.body.classList.contains('dark-mode');
+        const isMobile = window.innerWidth <= 768;
+        
+        // Reduce particle count on mobile
+        const particleCount = isMobile ? {
+            leaves: 10,
+            fireflies: 15
+        } : {
+            leaves: 20,
+            fireflies: 30
+        };
         
         if (isDarkMode) {
-            createFireflies(30);
+            createFireflies(particleCount.fireflies);
         } else {
-            createLeaves(20);
+            createLeaves(particleCount.leaves);
         }
     }
     
@@ -163,4 +237,13 @@ document.addEventListener('DOMContentLoaded', function() {
         // Return a random value to shift the hue towards different green shades
         return Math.floor(Math.random() * 40) - 20; // -20 to +20 degree shift
     }
+    
+    // Update particles on window resize
+    window.addEventListener('resize', function() {
+        // Clear existing particles
+        particleContainer.innerHTML = '';
+        
+        // Create new particles with adjusted count
+        updateParticles();
+    });
 });

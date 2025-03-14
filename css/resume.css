@@ -1,0 +1,89 @@
+/* Resume Page Specific Styles */
+.resume-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.resume-section {
+    margin-bottom: 20px;
+}
+
+.resume-section-title {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #1c2a18;
+    border-bottom: 2px solid #6eea8e;
+    padding-bottom: 5px;
+}
+
+.resume-item {
+    margin-bottom: 20px;
+    padding-left: 20px;
+    border-left: 3px solid #6eea8e;
+    position: relative;
+}
+
+.resume-item::before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 0;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #6eea8e;
+}
+
+.resume-item-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.resume-item-subtitle {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.resume-item-date {
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.resume-item-description {
+    line-height: 1.5;
+}
+
+body.dark-mode .resume-section-title {
+    color: #6eea8e;
+    border-bottom-color: #006600;
+}
+
+body.dark-mode .resume-item {
+    border-left-color: #006600;
+}
+
+body.dark-mode .resume-item::before {
+    background-color: #006600;
+}
+
+body.dark-mode .resume-item-subtitle {
+    color: #aaa;
+}
+
+body.dark-mode .resume-item-date {
+    color: #999;
+}
+
+/* Responsive Styles for Resume */
+@media (max-width: 480px) {
+    .resume-item {
+        padding-left: 15px;
+    }
+    
+    .resume-section-title {
+        font-size: 1.3rem;
+    }
+}
